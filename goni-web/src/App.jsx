@@ -39,7 +39,7 @@ export default function App() {
         @keyframes introFadeIn { from { opacity:0; } to { opacity:1; } }
         @keyframes introCardUp { from { opacity:0; transform:translateY(32px) scale(0.97); } to { opacity:1; transform:translateY(0) scale(1); } }
         
-        /* How It Works Animations */
+
         @keyframes howModalFade { from { opacity:0; backdrop-filter:blur(0px); } to { opacity:1; backdrop-filter:blur(12px); } }
         @keyframes howModalScale { 
           0% { opacity:0; transform:scale(0.9) translateY(40px); } 
@@ -64,7 +64,7 @@ export default function App() {
         .intro-enter-btn { transition: all 0.2s ease; }
       `}</style>
 
-      {/* ── Intro Modal ── */}
+
       {showIntro && (
         <div style={{
           position: "fixed", inset: 0, zIndex: 999,
@@ -128,7 +128,7 @@ export default function App() {
         </div>
       )}
 
-      {/* ── How It Works Modal ── */}
+
       {showHowItWorks && (
         <div style={{
           position: "fixed", inset: 0, zIndex: 1000,
@@ -197,7 +197,7 @@ export default function App() {
         </div>
       )}
 
-      {/* ── Nav ── */}
+
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         padding: "18px clamp(16px, 5vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -228,10 +228,10 @@ export default function App() {
         </div>
       </nav>
 
-      {/* ── Hero ── */}
+
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", padding: "120px 24px 80px", overflow: "hidden" }}>
 
-        {/* Grid background */}
+
         <div style={{
           position: "absolute", inset: 0, zIndex: 0,
           backgroundImage: "linear-gradient(rgba(61,155,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(61,155,255,0.04) 1px, transparent 1px)",
@@ -240,13 +240,13 @@ export default function App() {
           maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%)",
         }} />
 
-        {/* Glow blobs */}
+
         <div style={{ position: "absolute", top: "20%", left: "10%", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(61,155,255,0.08) 0%, transparent 70%)", animation: "pulse 6s ease infinite", zIndex: 0 }} />
         <div style={{ position: "absolute", bottom: "20%", right: "10%", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(230,57,70,0.05) 0%, transparent 70%)", animation: "pulse 8s 2s ease infinite", zIndex: 0 }} />
 
         <AmbientBackground />
 
-        {/* Georgian watermark */}
+
         <div style={{
           position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
           fontSize: "clamp(120px, 20vw, 280px)", color: "rgba(61,155,255,0.025)",
@@ -255,7 +255,7 @@ export default function App() {
 
         <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "0", textAlign: "center" }}>
 
-          {/* Badge */}
+
           <div className="fade-1" style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
             padding: "6px 16px", borderRadius: "100px",
@@ -265,7 +265,7 @@ export default function App() {
             <span style={{ fontSize: "12px", color: "#6ab0ff", fontFamily: "monospace", letterSpacing: "1px" }}>ხელოვნური ინტელექტი · ქართული · უფასოდ</span>
           </div>
 
-          {/* Headline */}
+
           <h1 className="fade-2" style={{
             fontSize: "clamp(44px, 7vw, 88px)", fontWeight: "400", margin: "0 0 10px",
             fontFamily: "'DM Serif Display', serif", lineHeight: 1.05,
@@ -284,7 +284,7 @@ export default function App() {
             ატვირთე შენი ჩანაწერები. გონი ხელოვნური ინტელექტის დახმარებით შექმნის სასწავლო ბარათებს.
           </p>
 
-          {/* CTAs */}
+
           <div className="fade-4" style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
             <button className="cta-btn" onClick={() => setScreen("upload")} style={{
               padding: "14px 32px", background: "#3D9BFF", color: "#fff", border: "none",
@@ -299,7 +299,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── Footer ── */}
+
       <footer style={{ borderTop: "1px solid #0f2039", padding: "28px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <img src={LOGO} alt="Goni" style={{ width: "24px", height: "24px", borderRadius: "6px", objectFit: "cover" }} />

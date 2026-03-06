@@ -3,9 +3,9 @@ import LOGO from '../assets/goni-logo-sm.png';
 
 export default function UploadScreen({ setScreen, onCardsGenerated }) {
   const [text, setText] = useState("");
-  const [file, setFile] = useState(null); // Changed to store the actual file object
+  const [file, setFile] = useState(null);
   const [dragging, setDragging] = useState(false);
-  const [isGenerating, setIsGenerating] = useState(false); // Tracks AI loading state
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const handleFile = (uploadedFile) => {
     if (uploadedFile && uploadedFile.type === "application/pdf") {
@@ -22,7 +22,7 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
 
   const canGenerate = (text.trim().length > 30 || file) && !isGenerating;
 
-  // ✨ THE MAGIC: Function to send data to your Express backend ✨
+
   const handleGenerate = async () => {
     setIsGenerating(true);
     
@@ -35,7 +35,7 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
         formData.append("text", text);
       }
 
-      // Call your Node.js server (local or production)
+
       const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${API_URL}/api/generate`, {
         method: "POST",
@@ -85,7 +85,7 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
         .loading-text { animation: pulseLoad 1.5s infinite ease-in-out; }
       `}</style>
 
-      {/* Nav */}
+
       <nav style={{ padding: "18px clamp(16px, 5vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #0f2039", flexWrap: "wrap", gap: "16px" }}>
         <div className="logo-group" style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
           <img src={LOGO} alt="Goni" style={{ width: "44px", height: "44px", borderRadius: "10px", objectFit: "cover", boxShadow: "0 4px 20px rgba(61,155,255,0.4)" }} />
@@ -104,10 +104,10 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
         </button>
       </nav>
 
-      {/* Main */}
+
       <div className="upload-fade" style={{ flex: 1, maxWidth: "640px", width: "100%", margin: "0 auto", padding: "60px 24px 80px", display: "flex", flexDirection: "column", gap: "32px" }}>
         
-        {/* Heading */}
+
         <div>
           <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(28px, 5vw, 40px)", fontWeight: "400", margin: "0 0 10px", letterSpacing: "-1px" }}>
             შენი მასალა — შენი ბარათები
@@ -119,7 +119,7 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
 
 
 
-        {/* Text area */}
+
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           <textarea
             value={text}
@@ -141,14 +141,14 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
           </div>
         </div>
 
-        {/* Divider */}
+
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <div style={{ flex: 1, height: "1px", background: "#0f2039" }} />
           <span style={{ fontSize: "12px", color: "#2a4060", fontFamily: "monospace" }}>ან</span>
           <div style={{ flex: 1, height: "1px", background: "#0f2039" }} />
         </div>
 
-        {/* Drop zone */}
+
         <div
           className="drop-zone"
           onDragOver={e => { e.preventDefault(); if(!isGenerating) setDragging(true); }}
@@ -184,7 +184,7 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
           )}
         </div>
 
-        {/* Generate button */}
+
         <button
           className="gen-btn"
           disabled={!canGenerate}

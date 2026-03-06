@@ -57,7 +57,7 @@ export default function AmbientBackground() {
           .anim-pulse-slow { animation: pulseLight 8s infinite alternate ease-in-out; }
         `}</style>
 
-        {/* Network Lines */}
+
         <g className="anim-drift-3">
           <line x1="250" y1="200" x2="450" y2="150" className="net-line anim-pulse" />
           <line x1="450" y1="150" x2="600" y2="350" className="net-line" />
@@ -68,7 +68,7 @@ export default function AmbientBackground() {
           <line x1="500" y1="600" x2="950" y2="500" className="net-line anim-pulse-slow" />
         </g>
 
-        {/* Glowing Nodes */}
+
         <g className="anim-drift-3">
           <circle cx="250" cy="200" r="4" className="node" />
           <circle cx="450" cy="150" r="3" className="node" />
@@ -78,7 +78,7 @@ export default function AmbientBackground() {
           <circle cx="950" cy="500" r="3" className="node" />
         </g>
 
-        {/* Floating Flashcards */}
+
         <g className="anim-drift-1">
           <g transform="translate(150, 250) skewY(-15) rotate(10)">
             <rect x="0" y="0" width="140" height="90" className="card" />

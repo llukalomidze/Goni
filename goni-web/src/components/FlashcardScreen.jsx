@@ -34,7 +34,7 @@ export default function FlashcardScreen({ flashcards, onReset }) {
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.5s ease both; }
         
-        /* 3D Flip Magic */
+
         .card-scene { perspective: 1000px; width: 100%; max-width: 600px; height: 380px; margin: 0 auto; cursor: pointer; }
         .card-container {
           width: 100%; height: 100%; position: relative;
@@ -61,7 +61,7 @@ export default function FlashcardScreen({ flashcards, onReset }) {
       
       <AmbientBackground />
 
-      {/* Nav */}
+
       <nav style={{ position: "relative", zIndex: 10, padding: "18px clamp(16px, 5vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #0f2039" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <img src={LOGO} alt="Goni" style={{ width: "44px", height: "44px", borderRadius: "10px", objectFit: "cover" }} />
@@ -80,15 +80,15 @@ export default function FlashcardScreen({ flashcards, onReset }) {
         </button>
       </nav>
 
-      {/* Main Area */}
+
       <div className="fade-in" style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "40px 24px" }}>
         
-        {/* Progress Indicator */}
+
         <div style={{ marginBottom: "32px", fontSize: "14px", color: "#5a7a9a", fontFamily: "monospace", letterSpacing: "2px" }}>
           ბარათი {currentIndex + 1} / {flashcards.length}
         </div>
 
-        {/* The 3D Card */}
+
         <div className="card-scene" onClick={() => setIsFlipped(!isFlipped)}>
           <div className={`card-container ${isFlipped ? 'is-flipped' : ''}`}>
             
@@ -112,7 +112,7 @@ export default function FlashcardScreen({ flashcards, onReset }) {
           </div>
         </div>
 
-        {/* Controls */}
+
         <div style={{ display: "flex", alignItems: "center", gap: "24px", marginTop: "48px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
             <button className="nav-btn" onClick={prevCard} disabled={currentIndex === 0} style={{
