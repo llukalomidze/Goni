@@ -35,6 +35,12 @@ app.post('/api/generate', upload.single('file'), async (req, res) => {
             extractedText = req.body.text;
         }
 
+        // IMPORTANT: Slice text to max 40,000 characters to prevent Render free-tier timeouts and Gemini context limits
+        if (extractedText.length > 40000) {
+            console.log(`Text too long (${extractedText.length}), slicing down to 40000 chars`);
+            extractedText = extractedText.slice(0, 40000);
+        }
+
         const prompt = `You are a professional tutor. Create exactly 7-10 high-quality study flashcards from the text provided. 
         Return ONLY a JSON array of objects. Each object must have "front" (the question) and "back" (the answer). 
         Do not use markdown blocks.
@@ -57,7 +63,7 @@ app.post('/api/generate', upload.single('file'), async (req, res) => {
         res.json({ flashcards });
     } catch (error) {
         console.error("Backend Error:", error);
-        res.status(500).json({ error: "Generation failed. Check PDF format." });
+        res.status(500).json({ error: "Generation failed: " + (error.message || "Unknown PDF parsing error") });
     }
 });
 

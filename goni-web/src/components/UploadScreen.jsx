@@ -42,7 +42,10 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
         body: formData,
       });
 
-      if (!response.ok) throw new Error("Server failed to generate");
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error || "სერვერის შეცდომა");
+      }
 
       const data = await response.json();
       
@@ -52,7 +55,7 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
 
     } catch (error) {
       console.error("Error:", error);
-      alert("შეცდომა გენერაციისას. სცადე თავიდან.");
+      alert(`შეცდომა: ${error.message}`);
     } finally {
       setIsGenerating(false);
     }
