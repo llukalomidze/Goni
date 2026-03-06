@@ -123,7 +123,7 @@ export default function App() {
             }}>
               გავიგე, ვცადოთ →
             </button>
-            <p style={{ fontSize: "11px", color: "#2a4060", marginTop: "16px", fontFamily: "monospace", letterSpacing: "1px" }}>v0.1 · გონი · 2025</p>
+            <p style={{ fontSize: "11px", color: "#2a4060", marginTop: "16px", fontFamily: "monospace", letterSpacing: "1px" }}>v0.1 · გონი · 2026</p>
           </div>
         </div>
       )}
