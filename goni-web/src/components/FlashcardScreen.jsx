@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import LOGO from '../assets/goni-logo-sm.png';
+import AmbientBackground from './AmbientBackground';
 
 export default function FlashcardScreen({ flashcards, onReset }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,9 +58,11 @@ export default function FlashcardScreen({ flashcards, onReset }) {
         .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
         .nav-btn { transition: all 0.2s; }
       `}</style>
+      
+      <AmbientBackground />
 
       {/* Nav */}
-      <nav style={{ padding: "18px clamp(16px, 5vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #0f2039" }}>
+      <nav style={{ position: "relative", zIndex: 10, padding: "18px clamp(16px, 5vw, 40px)", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #0f2039" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <img src={LOGO} alt="Goni" style={{ width: "44px", height: "44px", borderRadius: "10px", objectFit: "cover" }} />
           <div>
@@ -78,7 +81,7 @@ export default function FlashcardScreen({ flashcards, onReset }) {
       </nav>
 
       {/* Main Area */}
-      <div className="fade-in" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "40px 24px" }}>
+      <div className="fade-in" style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "40px 24px" }}>
         
         {/* Progress Indicator */}
         <div style={{ marginBottom: "32px", fontSize: "14px", color: "#5a7a9a", fontFamily: "monospace", letterSpacing: "2px" }}>
@@ -111,17 +114,23 @@ export default function FlashcardScreen({ flashcards, onReset }) {
 
         {/* Controls */}
         <div style={{ display: "flex", alignItems: "center", gap: "24px", marginTop: "48px" }}>
-          <button className="nav-btn" onClick={prevCard} disabled={currentIndex === 0} style={{
-            width: "56px", height: "56px", borderRadius: "50%", background: "#0b1622",
-            border: "1px solid #1a3550", color: "#6a8aaa", fontSize: "20px", cursor: "pointer",
-            display: "flex", alignItems: "center", justifyContent: "center"
-          }}>←</button>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
+            <button className="nav-btn" onClick={prevCard} disabled={currentIndex === 0} style={{
+              width: "56px", height: "56px", borderRadius: "50%", background: "#0b1622",
+              border: "1px solid #1a3550", color: "#6a8aaa", fontSize: "20px", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center"
+            }}>←</button>
+            <span style={{ fontSize: "11px", color: "#5a7a9a", fontFamily: "monospace", letterSpacing: "0.5px" }}>უკან დაბრუნება</span>
+          </div>
           
-          <button className="nav-btn" onClick={nextCard} disabled={currentIndex === flashcards.length - 1} style={{
-            width: "56px", height: "56px", borderRadius: "50%", background: "#0b1622",
-            border: "1px solid #1a3550", color: "#6a8aaa", fontSize: "20px", cursor: "pointer",
-            display: "flex", alignItems: "center", justifyContent: "center"
-          }}>→</button>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
+            <button className="nav-btn" onClick={nextCard} disabled={currentIndex === flashcards.length - 1} style={{
+              width: "56px", height: "56px", borderRadius: "50%", background: "#0b1622",
+              border: "1px solid #1a3550", color: "#6a8aaa", fontSize: "20px", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center"
+            }}>→</button>
+            <span style={{ fontSize: "11px", color: "#5a7a9a", fontFamily: "monospace", letterSpacing: "0.5px" }}>შემდეგზე გადასვლა</span>
+          </div>
         </div>
 
       </div>

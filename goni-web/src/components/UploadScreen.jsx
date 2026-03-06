@@ -35,8 +35,9 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
         formData.append("text", text);
       }
 
-      // Call your local Node.js server
-      const response = await fetch("http://localhost:5000/api/generate", {
+      // Call your Node.js server (local or production)
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${API_URL}/api/generate`, {
         method: "POST",
         body: formData,
       });
@@ -46,7 +47,6 @@ export default function UploadScreen({ setScreen, onCardsGenerated }) {
       const data = await response.json();
       
       console.log("SUCCESS! Here are your flashcards:", data.flashcards);
-      alert("წარმატებით დაგენერირდა! შეამოწმე კონსოლი (F12) ბარათების სანახავად.");
       
       if (onCardsGenerated) onCardsGenerated(data.flashcards);
 

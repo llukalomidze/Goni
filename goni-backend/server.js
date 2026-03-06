@@ -6,7 +6,7 @@ const pdfParse = require('pdf-parse');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // Initialize the Gemini SDK using the key from your .env file
 const ai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -62,5 +62,5 @@ app.post('/api/generate', upload.single('file'), async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Goni Backend listening securely on http://localhost:${port}`);
+    console.log(`Goni Backend listening on port ${port}`);
 });
