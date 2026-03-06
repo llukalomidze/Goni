@@ -305,7 +305,10 @@ export default function App() {
           <img src={LOGO} alt="Goni" style={{ width: "24px", height: "24px", borderRadius: "6px", objectFit: "cover" }} />
           <span style={{ fontSize: "14px", color: "#3a6080", fontFamily: "monospace" }}>Goni · გონი · 2026</span>
         </div>
-        <a href="#" style={{ color: "#2a4a6a", fontSize: "12px", textDecoration: "none", fontFamily: "monospace" }}>კონტაქტი</a>
+        <div style={{ fontSize: "12px", color: "#3a6080", fontFamily: "monospace", letterSpacing: "2px" }}>
+          BUILT BY LUKA LOMIDZE
+        </div>
+        <a href="https://lukalomidze.com" target="_blank" rel="noopener noreferrer" style={{ color: "#2a4a6a", fontSize: "12px", textDecoration: "none", fontFamily: "monospace" }}>კონტაქტი</a>
       </footer>
     </div>
   );

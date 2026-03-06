@@ -134,6 +134,10 @@ export default function FlashcardScreen({ flashcards, onReset }) {
         </div>
 
       </div>
+
+      <div style={{ textAlign: "center", padding: "24px", fontSize: "12px", color: "#3a6080", fontFamily: "monospace", letterSpacing: "2px" }}>
+        BUILT BY LUKA LOMIDZE
+      </div>
     </div>
   );
 }
